@@ -1,0 +1,25 @@
+version: '2'
+services:
+  hub:
+    image: selenium/hub:2.53.1
+    restart: unless-stopped
+    shm_size: 256M
+  chrome-node:
+    image: selenium/node-chrome:2.53.1
+    restart: "no"
+    shm_size: 256M
+    depends_on:
+    - hub
+    environment:
+    - HUB_PORT_4444_TCP_ADDR=hub
+    - HUB_PORT_4444_TCP_PORT=4444
+  nightwatcher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    depends_on:
+    - hub
+    volumes:
+    - ./tests:/usr/src/app/tests
+    - ./output:/usr/src/app/output
