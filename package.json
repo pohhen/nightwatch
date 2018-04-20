@@ -4,7 +4,7 @@
   "description": "tests",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "sonar": "sonar-scanner -Dsonar.projectKey=nightwatch -Dsonar.sources=. -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login="
   },
   "scripts": {
     "test": "nightwatch -c nightwatch.json --reporter html-reporter.js"
@@ -14,5 +14,8 @@
   "dependencies": {
     "handlebars": "^4.0.11",
     "nightwatch": "^0.9.16"
+  },
+  "devDependencies": {
+    "sonarqube-scanner": "^2.0.2"
   }
 }
