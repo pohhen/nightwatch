@@ -4,10 +4,11 @@
   "description": "tests",
   "main": "index.js",
   "directories": {
-    "sonar": "sonar-scanner -Dsonar.projectKey=nightwatch -Dsonar.sources=. -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login="
+    "test": "tests"
   },
   "scripts": {
-    "test": "nightwatch -c nightwatch.json --reporter html-reporter.js"
+    "test": "nightwatch -c nightwatch.json --reporter html-reporter.js",
+    "sonar": "sonar-scanner -Dsonar.projectKey=nightwatch -Dsonar.sources=. -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login="
   },
   "author": "",
   "license": "ISC",
